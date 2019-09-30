@@ -1,0 +1,15 @@
+logging:
+  #日志存储地址
+  file: "logs/app-client.log"
+info:
+  name : "App 后端接口"
+
+server:
+  #端口号
+  port: 8888
+  context-path: /
+  #address: client1.com
+  
+
+ 
+ 
