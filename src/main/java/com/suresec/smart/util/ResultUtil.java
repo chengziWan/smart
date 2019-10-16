@@ -22,6 +22,12 @@ public class ResultUtil {
         returnMessage.setData(object);
         return returnMessage;
     }
+    /**
+     * 
+     * @author wcc
+     * @time 2019-10-10 13:33
+     * @description 暂未使用--会出现不跳转问题
+     */
     public static ReturnMessage success(){
         return success(null);
     }

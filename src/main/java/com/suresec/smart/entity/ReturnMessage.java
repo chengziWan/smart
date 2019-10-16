@@ -24,8 +24,6 @@ public class ReturnMessage<T> {
         this.code = code;
     }
  
-   
- 
     public String getMessage() {
 		return message;
 	}
