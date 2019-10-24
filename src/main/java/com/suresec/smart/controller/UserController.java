@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.suresec.smart.entity.Sys_users;
+import com.suresec.smart.entity.commom.Sys_users;
 import com.suresec.smart.service.UserService;
 
 @RestController
@@ -18,10 +18,10 @@ public class UserController {
 	@RequestMapping("/login")
     public Map<String, Object> login() {
         Sys_users user = new Sys_users();
-        user.setId("3");
+        user.setUsername("3");
         user.setName("cc");
         user.setCompanyid("1001");
-        user.setPwd("123456");
+        user.setPassword("123456");
         user.setStatus("0");
 		userService.insertUser(user);
 		//userService.getUser("1");

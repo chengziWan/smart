@@ -1,33 +1,25 @@
-package com.suresec.smart.entity;
+package com.suresec.smart.entity.commom;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
 /**
-* sys_users 实体类
-* 2019-10-14 14:22:17 wcc
+* sys_roles 实体类
+* 2019-10-17 10:20:18 wcc
 */ 
 @Entity
-@Table(name="sys_users")
+@Table(name="sys_roles")
 @Data
-public class Sys_users{
+public class Sys_roles{
 	/**
-	*账号
+	*角色编号
 	*/
 	@Id
 	private String id;
 	/**
-	*名称
+	*角色名称
 	*/
 	private String name;
-	/**
-	*所属机构
-	*/
-	private String companyid;
-	/**
-	*密码
-	*/
-	private String pwd;
 	/**
 	*禁用否(1:禁用;0:启用)
 	*/

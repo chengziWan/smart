@@ -1,6 +1,6 @@
 package com.suresec.smart.service;
 
-import com.suresec.smart.entity.Sys_users;
+import com.suresec.smart.entity.commom.Sys_users;
 
 /**
  * 

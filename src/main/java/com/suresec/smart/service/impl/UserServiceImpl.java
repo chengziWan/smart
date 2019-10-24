@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.suresec.smart.dao.UserDao;
-import com.suresec.smart.entity.Sys_users;
+import com.suresec.smart.dao.Sys_usersDao;
+import com.suresec.smart.entity.commom.Sys_users;
 import com.suresec.smart.service.UserService;
 /**
  * 
@@ -17,7 +17,7 @@ import com.suresec.smart.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 	@Autowired
-    private UserDao userDao;
+    private Sys_usersDao userDao;
 	/**
 	 * 通过id查询用户
 	 */
@@ -40,14 +40,14 @@ public class UserServiceImpl implements UserService {
 		System.out.println("11111111");
 		userDao.save(user);
 		Sys_users user2 = new Sys_users();
-        user.setId("4");
+        user.setUsername("4");
         user.setName("cc");
         user.setCompanyid("1001");
-        user.setPwd("123456");
+        user.setPassword("123456");
         user.setStatus("022");
         userDao.save(user2);
 		System.out.println("2222222222");
-		return userDao.getUser(user.getId());
+		return userDao.getUser(user.getUsername());
 	}
 
 }

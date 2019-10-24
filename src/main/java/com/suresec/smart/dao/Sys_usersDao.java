@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.suresec.smart.entity.Sys_users;
+import com.suresec.smart.entity.commom.Sys_users;
 
 /**
  * 注意：
@@ -17,7 +17,7 @@ import com.suresec.smart.entity.Sys_users;
  * 4.当然，我们也可以根据自己的情况来实现自己的接口,如下面的getUser()方法，jpql语句和hql语句差不多
  * 
  * */
-public interface UserDao extends CrudRepository<Sys_users,String>{
+public interface Sys_usersDao extends CrudRepository<Sys_users,String>{
 	/**
      * 我们这里只需要写接口，不需要写实现，spring boot会帮忙自动实现
      * 

@@ -42,7 +42,7 @@ public class GenEntityTable {
 	private static final String pwd="123456";
 	private static final String user="root";
 	private static final String url = "jdbc:mysql://localhost:3306/cc3" + "?user=" + user + "&password=" + pwd + "&useUnicode=true&characterEncoding=UTF-8";
-	private static String[] tablename = null;//null;//{"sys_users","sys_roles","sys_menus","sys_roles_menus","sys_users_roles","sys_logs"};// 表名
+	private static String[] tablename = {"sys_menus"};//null;//{"sys_users","sys_roles","sys_menus","sys_roles_menus","sys_users_roles","sys_logs"};// 表名
 	
 	private static String setpackage="com.suresec.smart.entity";//你的实体类所在的包的位置
 	

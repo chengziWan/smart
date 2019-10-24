@@ -22,7 +22,7 @@ spring:
     properties:
       hibernate:
         hbm2ddl:
-          auto: update
+          auto: none
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
   show-sql: true
   #这是啥，我也不知道哎

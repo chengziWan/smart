@@ -1,6 +1,6 @@
 package com.suresec.smart.util;
 
-import com.suresec.smart.entity.ReturnMessage;
+import com.suresec.smart.commom.api.ReturnMessage;
 
 /**
  * 
