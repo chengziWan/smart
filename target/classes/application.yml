@@ -9,7 +9,31 @@ server:
   port: 8888
   context-path: /
   #address: client1.com
-  
+
+##mysql
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cc3?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+  #jpa
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  show-sql: true
+  #这是啥，我也不知道哎
+  jackson:
+    serialization:
+      indent_output: true
+##swagger2启用否
+swagger:
+  #生产环境中要设置为false
+  enable: true
+
 
  
  
