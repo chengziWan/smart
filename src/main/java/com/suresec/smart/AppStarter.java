@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @time 2019-10-14 14:02
  * @description 
  */
-@EnableTransactionManagement//spring Boot Ê¹ÓÃÊÂÎñ·Ç³£¼òµ¥£¬Ê×ÏÈÊ¹ÓÃ×¢½â @EnableTransactionManagement ¿ªÆôÊÂÎñÖ§³Öºó£¬È»ºóÔÚ·ÃÎÊÊı¾İ¿âµÄService·½·¨ÉÏÌí¼Ó×¢½â @Transactional ±ã¿É
+@EnableTransactionManagement//spring Boot ä½¿ç”¨äº‹åŠ¡éå¸¸ç®€å•ï¼Œé¦–å…ˆä½¿ç”¨æ³¨è§£ @EnableTransactionManagement å¼€å¯äº‹åŠ¡æ”¯æŒåï¼Œç„¶ååœ¨è®¿é—®æ•°æ®åº“çš„Serviceæ–¹æ³•ä¸Šæ·»åŠ æ³¨è§£ @Transactional ä¾¿å¯
 @SpringBootApplication
 public class AppStarter {
 	public static void main(String[] args) {

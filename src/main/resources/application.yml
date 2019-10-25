@@ -29,6 +29,10 @@ spring:
   jackson:
     serialization:
       indent_output: true
+##swagger2启用否
+swagger:
+  #生产环境中要设置为false
+  enable: true
 
 
  

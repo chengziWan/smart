@@ -2,7 +2,6 @@ package com.suresec.smart.controller;
 
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,9 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.suresec.smart.commom.api.ReturnMessage;
 import com.suresec.smart.entity.commom.Sys_menus;
-import com.suresec.smart.entity.commom.Sys_roles_menus;
 import com.suresec.smart.entity.commom.Sys_users;
-import com.suresec.smart.entity.commom.Sys_users_roles;
 import com.suresec.smart.service.LoginService;
 import com.suresec.smart.util.ResultUtil;
 
@@ -33,20 +29,20 @@ import io.swagger.annotations.ApiOperation;
  * 
  * @author wcc
  * @time 2019-10-17 11:17
- * @description µÇÂ¼ÑéÖ¤¹ÜÀí
+ * @description ç™»å½•éªŒè¯ç®¡ç†
  */
-@RestController
-@Api(tags = "LoginController", description = "µÇÂ¼ÑéÖ¤¹ÜÀí")
+//@RestController
+//@Api(tags = "LoginController", description = "ç™»å½•éªŒè¯ç®¡ç†")
 public class LoginController {
 	@Autowired
 	private LoginService loginService;
 	
 	@RequestMapping(value = "/prod-api/user/login", method = RequestMethod.POST)
-	@ApiOperation("µÇÂ¼")
+	@ApiOperation("ç™»å½•")
 	public ReturnMessage login(HttpServletRequest request,@RequestBody Sys_users user) {
 		String username = user.getUsername();
 		String password = user.getPassword(); 
-		// µÇÂ¼ÈÏÖ¤£¬ÈÏÖ¤³É¹¦ºó½«ÓÃ»§ĞÅÏ¢·Åµ½sessionÖĞ
+		// ç™»å½•è®¤è¯ï¼Œè®¤è¯æˆåŠŸåå°†ç”¨æˆ·ä¿¡æ¯æ”¾åˆ°sessionä¸­
 		HttpSession session = request.getSession();
 		if (username.equals("admin") && password.equals("111111")) {
 			String token = session.getId();
@@ -63,9 +59,9 @@ public class LoginController {
 	}
 	//user/resetToken
 	@RequestMapping(value = "/prod-api/user/info", method = RequestMethod.GET)
-	@ApiOperation("»ñÈ¡ÓÃ»§ĞÅÏ¢")
+	@ApiOperation("è·å–ç”¨æˆ·ä¿¡æ¯")
 	public ReturnMessage info(HttpServletRequest request) {
-		//¸ù¾İtoken»ñÈ¡ÓÃ»§ĞÅÏ¢
+		//æ ¹æ®tokenè·å–ç”¨æˆ·ä¿¡æ¯
 		HttpSession session = request.getSession();
 		String username = (String) session.getAttribute("userInfo");
 		System.out.println("username="+username);
@@ -78,7 +74,7 @@ public class LoginController {
 		return ResultUtil.success(mp);
 	}
 	@RequestMapping(value = "/prod-api/menuManage/getMenuByRole", method = RequestMethod.GET)
-	@ApiOperation("¸ù¾İrolesÈ¨ÏŞÉú³É¿É·ÃÎÊµÄÂ·ÓÉ±í")
+	@ApiOperation("æ ¹æ®rolesæƒé™ç”Ÿæˆå¯è®¿é—®çš„è·¯ç”±è¡¨")
 	public ReturnMessage getMenuByRole(HttpServletRequest request,@RequestParam(name = "role") String role) {
 		System.out.println("role="+role);
 		List<Sys_menus> list = loginService.getMenuByRole(role);
@@ -86,18 +82,18 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/prod-api/user/logout", method = RequestMethod.POST)
-	@ApiOperation("×¢Ïú")
+	@ApiOperation("æ³¨é”€")
 	public ReturnMessage logout(HttpServletRequest request) {
-		String info = "µÇ³ö²Ù×÷";
+		String info = "ç™»å‡ºæ“ä½œ";
 		HttpSession session = request.getSession();
-		// ½«ÓÃ»§ĞÅÏ¢´ÓsessionÖĞÉ¾³ı
+		// å°†ç”¨æˆ·ä¿¡æ¯ä»sessionä¸­åˆ é™¤
 		session.removeAttribute("userInfo");
 		session.removeAttribute("token");
 		Object userInfo = session.getAttribute("userInfo");
 		if (userInfo == null) {
-			info = "µÇ³ö³É¹¦";
+			info = "ç™»å‡ºæˆåŠŸ";
 		} else {
-			info = "µÇ³öÊ§°Ü";
+			info = "ç™»å‡ºå¤±è´¥";
 		}
 		return ResultUtil.success("success");
 	}

@@ -19,13 +19,13 @@ public class UserServiceImpl implements UserService {
 	@Autowired
     private Sys_usersDao userDao;
 	/**
-	 * Í¨¹ıid²éÑ¯ÓÃ»§
+	 * é€šè¿‡idæŸ¥è¯¢ç”¨æˆ·
 	 */
 	public Sys_users getUser(String id) {
-		// ÓĞÁ½ÖÖ·½Ê½£º
-		// 1.µ÷ÓÃcrudRepositoryµÄ½Ó¿Ú
+		// æœ‰ä¸¤ç§æ–¹å¼ï¼š
+		// 1.è°ƒç”¨crudRepositoryçš„æ¥å£
 //		System.out.println(userDao.findById(id).toString());
-		// 2.µ÷ÓÃÎÒÃÇ×Ô¼ºĞ´µÄ½Ó¿Ú
+		// 2.è°ƒç”¨æˆ‘ä»¬è‡ªå·±å†™çš„æ¥å£
 		System.out.println(userDao.getUser(id).toString());
 		return userDao.getUser(id);
 	}
@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 	 * 
 	 * @author wcc
 	 * @time 2019-10-14 14:25
-	 * @description ²åÈë
+	 * @description æ’å…¥
 	 */
 	@Transactional
 	public Sys_users insertUser(Sys_users user) {

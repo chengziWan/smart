@@ -7,14 +7,14 @@ import org.springframework.data.repository.query.Param;
 import com.suresec.smart.entity.commom.Sys_menus;
 
 /**
- * ×¢Òâ£º
- * 1.ÕâÀïÕâÀïÊÇinterface£¬²»ÊÇclass
+ * æ³¨æ„ï¼š
+ * 1.è¿™é‡Œè¿™é‡Œæ˜¯interfaceï¼Œä¸æ˜¯class
  * 
- * 2.CrudRepositoryÀïÃæµÄ·ºĞÍ£¬µÚÒ»¸öÊÇÊµÌåÀà£¬µÚ¶ş¸öÊÇÖ÷¼üµÄÀàĞÍ
+ * 2.CrudRepositoryé‡Œé¢çš„æ³›å‹ï¼Œç¬¬ä¸€ä¸ªæ˜¯å®ä½“ç±»ï¼Œç¬¬äºŒä¸ªæ˜¯ä¸»é”®çš„ç±»å‹
  * 
- * 3.ÓÉÓÚcrudRepository ÀïÃæÒÑ¾­ÓĞÒ»Ğ©½Ó¿ÚÁË£¬ÈçdeleteAll£¬findOneµÈ£¬ ÎÒÃÇÖ±½Óµ÷ÓÃ¼´¿É
+ * 3.ç”±äºcrudRepository é‡Œé¢å·²ç»æœ‰ä¸€äº›æ¥å£äº†ï¼Œå¦‚deleteAllï¼ŒfindOneç­‰ï¼Œ æˆ‘ä»¬ç›´æ¥è°ƒç”¨å³å¯
  * 
- * 4.µ±È»£¬ÎÒÃÇÒ²¿ÉÒÔ¸ù¾İ×Ô¼ºµÄÇé¿öÀ´ÊµÏÖ×Ô¼ºµÄ½Ó¿Ú,ÈçÏÂÃæµÄgetUser()·½·¨£¬jpqlÓï¾äºÍhqlÓï¾ä²î²»¶à
+ * 4.å½“ç„¶ï¼Œæˆ‘ä»¬ä¹Ÿå¯ä»¥æ ¹æ®è‡ªå·±çš„æƒ…å†µæ¥å®ç°è‡ªå·±çš„æ¥å£,å¦‚ä¸‹é¢çš„getUser()æ–¹æ³•ï¼Œjpqlè¯­å¥å’Œhqlè¯­å¥å·®ä¸å¤š
  * 
  * */
 public interface Sys_menusDao extends CrudRepository<Sys_menus,String>{

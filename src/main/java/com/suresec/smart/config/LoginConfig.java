@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.suresec.smart.interceptor.LoginInterceptor;
 
 /**
- * @author ÍõÑîË§
+ * @author ç‹æ¨å¸…
  * @create 2018-09-11 21:35
  * @desc
  **/
@@ -17,8 +17,8 @@ public class LoginConfig implements WebMvcConfigurer {
 	@Autowired
 	private LoginInterceptor loginInterceptor;
     public void addInterceptors(InterceptorRegistry registry) {
-    	// addPathPatterns("/**") ±íÊ¾À¹½ØËùÓĞµÄÇëÇó£¬
-        // excludePathPatterns("/login", "/register") ±íÊ¾³ıÁËµÇÂ½Óë×¢²áÖ®Íâ£¬ÒòÎªµÇÂ½×¢²á²»ĞèÒªµÇÂ½Ò²¿ÉÒÔ·ÃÎÊ
+    	// addPathPatterns("/**") è¡¨ç¤ºæ‹¦æˆªæ‰€æœ‰çš„è¯·æ±‚ï¼Œ
+        // excludePathPatterns("/login", "/register") è¡¨ç¤ºé™¤äº†ç™»é™†ä¸æ³¨å†Œä¹‹å¤–ï¼Œå› ä¸ºç™»é™†æ³¨å†Œä¸éœ€è¦ç™»é™†ä¹Ÿå¯ä»¥è®¿é—®
         registry.addInterceptor(loginInterceptor)
         .addPathPatterns("/prod-api/**")
         .excludePathPatterns("/swagger-ui.html", "/prod-api/user/login", "/prod-api/user/logout");

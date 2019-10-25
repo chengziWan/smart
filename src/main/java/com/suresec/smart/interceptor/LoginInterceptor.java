@@ -12,9 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author ÍõÑîË§
+ * @author ç‹æ¨å¸…
  * @create 2018-09-11 21:31
- * @desc µÇÂ¼×´Ì¬À¹½ØÆ÷
+ * @desc ç™»å½•çŠ¶æ€æ‹¦æˆªå™¨
  **/
 @Slf4j
 
@@ -26,14 +26,14 @@ public class LoginInterceptor implements HandlerInterceptor {
 //        String tokenParam = request.getParameter("token");
         HttpSession session = request.getSession();
         String tokenSession = (String) session.getAttribute("token");
-        log.info("sessionIdÎª£º" +tokenSession );
+        log.info("sessionIdä¸ºï¼š" +tokenSession );
 
-        // »ñÈ¡ÓÃ»§ĞÅÏ¢£¬Èç¹ûÃ»ÓĞÓÃ»§ĞÅÏ¢Ö±½Ó·µ»ØÌáÊ¾ĞÅÏ¢
+        // è·å–ç”¨æˆ·ä¿¡æ¯ï¼Œå¦‚æœæ²¡æœ‰ç”¨æˆ·ä¿¡æ¯ç›´æ¥è¿”å›æç¤ºä¿¡æ¯
         // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
         Object userInfo = session.getAttribute("userInfo");
         if (tokenSession != null&& userInfo != null) {
         } else {
-            response.getWriter().write("ÇëÏÈµÇÂ¼");
+            response.getWriter().write("è¯·å…ˆç™»å½•");
             return false;
         }
 

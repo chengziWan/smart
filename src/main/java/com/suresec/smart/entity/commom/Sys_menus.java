@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Data;
 /**
-* sys_menus ÊµÌåÀà
+* sys_menus å®ä½“ç±»
 * 2019-10-23 15:54:19 wcc
 */ 
 @Entity
@@ -23,7 +23,7 @@ import lombok.Data;
 @Data
 public class Sys_menus{
 	/**
-	*²Ëµ¥±àºÅ
+	*èœå•ç¼–å·
 	*/
 	@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,15 +45,15 @@ public class Sys_menus{
 	//@JoinColumn(name="parnet_id")
 	private String parent_id;
 	/**
-	*½ûÓÃ·ñ(1:½ûÓÃ;0:ÆôÓÃ)
+	*ç¦ç”¨å¦(1:ç¦ç”¨;0:å¯ç”¨)
 	*/
 	private String status;
 	/**
-	*´´½¨ÈË
+	*åˆ›å»ºäºº
 	*/
 	private String create_usr;
 	/**
-	*´´½¨Ê±¼ä
+	*åˆ›å»ºæ—¶é—´
 	*/
 	private String timestamp;
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="parent_id",targetEntity = Sys_menus.class)

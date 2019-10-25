@@ -7,17 +7,17 @@ import lombok.Data;
  * @author wcc
  * @param <T>
  * @time 2019-09-29 16:16
- * @description ½Ó¿Ú·µ»ØÊµÌåÀà
+ * @description æ¥å£è¿”å›å®ä½“ç±»
  */
 @Data
 public class ReturnMessage<T> {
-	/*´íÎóÂë*/
+	/*é”™è¯¯ç */
     private Integer code;//20000
  
-    /*ÌáÊ¾ĞÅÏ¢ */
+    /*æç¤ºä¿¡æ¯ */
     private String message;
  
-    /*¾ßÌåÄÚÈİ*/
+    /*å…·ä½“å†…å®¹*/
     private  T data;
  
 }

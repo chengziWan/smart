@@ -4,7 +4,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
 /**
-* sys_users ÊµÌåÀà
+* sys_users å®ä½“ç±»
 * 2019-10-17 10:20:18 wcc
 */ 
 @Entity
@@ -12,32 +12,32 @@ import lombok.Data;
 @Data
 public class Sys_users{
 	/**
-	*ÕËºÅ
+	*è´¦å·
 	*/
 	@Id
 	private String username;
 	/**
-	*Ãû³Æ
+	*åç§°
 	*/
 	private String name;
 	/**
-	*ËùÊô»ú¹¹
+	*æ‰€å±æœºæ„
 	*/
 	private String companyid;
 	/**
-	*ÃÜÂë
+	*å¯†ç 
 	*/
 	private String password;
 	/**
-	*½ûÓÃ·ñ(1:½ûÓÃ;0:ÆôÓÃ)
+	*ç¦ç”¨å¦(1:ç¦ç”¨;0:å¯ç”¨)
 	*/
 	private String status;
 	/**
-	*´´½¨ÈË
+	*åˆ›å»ºäºº
 	*/
 	private String create_usr;
 	/**
-	*´´½¨Ê±¼ä
+	*åˆ›å»ºæ—¶é—´
 	*/
 	private String timestamp;
 }

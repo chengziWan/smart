@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 /**
-* sys_logs ÊµÌåÀà
+* sys_logs å®ä½“ç±»
 * 2019-10-17 10:20:18 wcc
 */ 
 @Entity
@@ -15,29 +15,29 @@ import lombok.Data;
 @Data
 public class Sys_logs{
 	/**
-	*ÈÕÖ¾±àºÅ
+	*æ—¥å¿—ç¼–å·
 	*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	/**
-	*²Ù×÷ÓÃ»§
+	*æ“ä½œç”¨æˆ·
 	*/
 	private String username;
 	/**
-	*²Ù×÷ÃèÊö
+	*æ“ä½œæè¿°
 	*/
 	private String description;
 	/**
-	*²Ù×÷Ê±¼ä
+	*æ“ä½œæ—¶é—´
 	*/
 	private String start_Time;
 	/**
-	*ÏûºÄÊ±¼ä
+	*æ¶ˆè€—æ—¶é—´
 	*/
 	private String spend_Time;
 	/**
-	*¸ùÂ·¾¶
+	*æ ¹è·¯å¾„
 	*/
 	private String base_Path;
 	/**
@@ -49,19 +49,19 @@ public class Sys_logs{
 	*/
 	private String url;
 	/**
-	*ÇëÇóÀàĞÍ
+	*è¯·æ±‚ç±»å‹
 	*/
 	private String method;
 	/**
-	*IPµØÖ·
+	*IPåœ°å€
 	*/
 	private String ip;
 	/**
-	*ÇëÇó²ÎÊı
+	*è¯·æ±‚å‚æ•°
 	*/
 	private String parameter;
 	/**
-	*ÇëÇó·µ»ØµÄ½á¹û
+	*è¯·æ±‚è¿”å›çš„ç»“æœ
 	*/
 	private String result;
 }

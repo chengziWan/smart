@@ -6,14 +6,14 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-//跨域
+//璺ㄥ煙
 @Configuration
 public class CustomCORSConfiguration {
 
     private CorsConfiguration buildConfig() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.addAllowedOrigin("http://localhost:9527");//setAllowCredentials(true)时，此项不可配置*
+        corsConfiguration.addAllowedOrigin("http://localhost:9527");//setAllowCredentials(true)鏃讹紝姝ら」涓嶅彲閰嶇疆*
         corsConfiguration.addAllowedHeader("*");
         corsConfiguration.addAllowedMethod("*");
         return corsConfiguration;

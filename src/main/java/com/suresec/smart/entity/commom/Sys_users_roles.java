@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
 /**
-* sys_users_roles ÊµÌåÀà
+* sys_users_roles å®ä½“ç±»
 * 2019-10-17 10:20:19 wcc
 */ 
 @Entity
@@ -15,18 +15,18 @@ import lombok.Data;
 @Data
 public class Sys_users_roles{
 	/**
-	*Ö÷¼ü
+	*ä¸»é”®
 	*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	/**
-	*½ÇÉ«±àºÅ
+	*è§’è‰²ç¼–å·
 	*/
 	@Column(name = "role_id")
 	private String role;
 	/**
-	*ÈËÔ±±àºÅ
+	*äººå‘˜ç¼–å·
 	*/
 	private String username;
 }

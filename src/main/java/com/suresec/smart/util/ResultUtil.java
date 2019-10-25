@@ -6,19 +6,19 @@ import com.suresec.smart.commom.api.ReturnMessage;
  * 
  * @author wcc
  * @time 2019-09-29 16:19
- * @description resetful½Ó¿Ú·µ»Ø¹«¹²Àà
+ * @description resetfulæ¥å£è¿”å›å…¬å…±ç±»
  */
 public class ResultUtil {
 	/**
 	 * 
 	 * @author wcc
 	 * @time 2019-09-29 16:23
-	 * @description ÇëÇó³É¹¦Ê±µ÷ÓÃ
+	 * @description è¯·æ±‚æˆåŠŸæ—¶è°ƒç”¨
 	 */
     public static ReturnMessage success(Object object){
         ReturnMessage returnMessage=new ReturnMessage();
         returnMessage.setCode(20000);
-        returnMessage.setMessage("ÇëÇó³É¹¦");
+        returnMessage.setMessage("è¯·æ±‚æˆåŠŸ");
         returnMessage.setData(object);
         return returnMessage;
     }
@@ -26,7 +26,7 @@ public class ResultUtil {
      * 
      * @author wcc
      * @time 2019-10-10 13:33
-     * @description ÔİÎ´Ê¹ÓÃ--»á³öÏÖ²»Ìø×ªÎÊÌâ
+     * @description æš‚æœªä½¿ç”¨--ä¼šå‡ºç°ä¸è·³è½¬é—®é¢˜
      */
     public static ReturnMessage success(){
         return success(null);
@@ -35,7 +35,7 @@ public class ResultUtil {
      * 
      * @author wcc
      * @time 2019-09-29 16:24
-     * @description ÇëÇóÊ§°ÜÊ±µ÷ÓÃ
+     * @description è¯·æ±‚å¤±è´¥æ—¶è°ƒç”¨
      */
     public static ReturnMessage error(Integer code,String msg){
         ReturnMessage returnMessage=new ReturnMessage();

@@ -83,7 +83,7 @@ public class WebLogAspect {
         String urlStr = request.getRequestURL().toString();
         webLog.setBase_Path(StrUtil.removeSuffix(urlStr, URLUtil.url(urlStr).getPath()));
         webLog.setIp(request.getRemoteAddr());
-        webLog.setUsername(request.getRemoteUser());
+        webLog.setUsername((String)(request.getSession().getAttribute("username")));//request.getRemoteUser()
         webLog.setMethod(request.getMethod());
         webLog.setParameter(getParameter(method, joinPoint.getArgs())+"");
         webLog.setResult(result.getCode()+result.getMessage());
@@ -99,7 +99,7 @@ public class WebLogAspect {
     }
 
     /**
-     * 根据方法和传入的参数获取请求参数
+     * 根据方法和传入的参数获取请求参数11
      */
     private Object getParameter(Method method, Object[] args) {
         List<Object> argList = new ArrayList<Object>();

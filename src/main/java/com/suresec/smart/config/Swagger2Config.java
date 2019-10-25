@@ -1,7 +1,9 @@
 package com.suresec.smart.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -11,21 +13,24 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Swagger2APIÎÄµµµÄÅäÖÃ--/swagger-ui.html
+ * Swagger2APIæ–‡æ¡£çš„é…ç½®--/swagger-ui.html
  */
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
+	@Value("${swagger.enable}")
+    private Boolean enable;
     @Bean
     public Docket createRestApi(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
+                .enable(enable)
                 .select()
-                //Îªµ±Ç°°üÏÂcontrollerÉú³ÉAPIÎÄµµ
+                //ä¸ºå½“å‰åŒ…ä¸‹controllerç”ŸæˆAPIæ–‡æ¡£
                 .apis(RequestHandlerSelectors.basePackage("com.suresec.smart.controller"))
-                //ÎªÓĞ@Api×¢½âµÄControllerÉú³ÉAPIÎÄµµ
+                //ä¸ºæœ‰@Apiæ³¨è§£çš„Controllerç”ŸæˆAPIæ–‡æ¡£
 //                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
-                //ÎªÓĞ@ApiOperation×¢½âµÄ·½·¨Éú³ÉAPIÎÄµµ
+                //ä¸ºæœ‰@ApiOperationæ³¨è§£çš„æ–¹æ³•ç”ŸæˆAPIæ–‡æ¡£
 //                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 .paths(PathSelectors.any())
                 .build();
@@ -33,7 +38,7 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("SwaggerUIÑİÊ¾")
+                .title("SwaggerUIæ¼”ç¤º")
                 .description("smart")
                 .contact("suresec")
                 .version("1.0")

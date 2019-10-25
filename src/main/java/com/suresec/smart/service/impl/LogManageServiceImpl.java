@@ -23,7 +23,7 @@ public class LogManageServiceImpl implements LogManageService {
 	 * 
 	 * @author wcc
 	 * @time 2019-10-14 14:25
-	 * @description ²åÈë
+	 * @description æ’å…¥
 	 */
 	@Transactional
 	public void inserLog(Sys_logs log) {

@@ -19,32 +19,32 @@ import javax.persistence.Table;
  * 
  * @author wcc
  * @time 2019-10-11 10:55
- * @description ¸ù¾Ý±íÉú³ÉÊµÌåÀà
+ * @description æ ¹æ®è¡¨ç”Ÿæˆå®žä½“ç±»
  */
 public class GenEntityTable {
 	
 	/**
-	 * ÕâÀïÊÇOracleÁ¬½Ó·½·¨
+	 * è¿™é‡Œæ˜¯Oracleè¿žæŽ¥æ–¹æ³•
 	 *private static final String driver = "oracle.jdbc.driver.OracleDriver";
 	 *private static final String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 	 *private static final String uid = "system";
 	 *private static final String pwd = "sys";
-	 *ÕâÀïÊÇSQL ServerÁ¬½Ó·½·¨
-	 *private static final String url = "jdbc:sqlserver://localhost:1433;DateBaseName=Êý¾Ý¿âÃû";
+	 *è¿™é‡Œæ˜¯SQL Serverè¿žæŽ¥æ–¹æ³•
+	 *private static final String url = "jdbc:sqlserver://localhost:1433;DateBaseName=æ•°æ®åº“å";
 	 *private static final String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
 	 *private static final String uid = "sa";
 	 *private static final String pwd = "sa";
 	 *
 	 *
-	 * ÕâÀïÊÇMySQLÁ¬½Ó·½·¨
+	 * è¿™é‡Œæ˜¯MySQLè¿žæŽ¥æ–¹æ³•
 	 */
 	private static final String driver="com.mysql.jdbc.Driver";
 	private static final String pwd="123456";
 	private static final String user="root";
 	private static final String url = "jdbc:mysql://localhost:3306/cc3" + "?user=" + user + "&password=" + pwd + "&useUnicode=true&characterEncoding=UTF-8";
-	private static String[] tablename = {"sys_menus"};//null;//{"sys_users","sys_roles","sys_menus","sys_roles_menus","sys_users_roles","sys_logs"};// ±íÃû
+	private static String[] tablename = {"sys_menus"};//null;//{"sys_users","sys_roles","sys_menus","sys_roles_menus","sys_users_roles","sys_logs"};// è¡¨å
 	
-	private static String setpackage="com.suresec.smart.entity";//ÄãµÄÊµÌåÀàËùÔÚµÄ°üµÄÎ»ÖÃ
+	private static String setpackage="com.suresec.smart.entity";//ä½ çš„å®žä½“ç±»æ‰€åœ¨çš„åŒ…çš„ä½ç½®
 	
 	private static Connection getConnection=null;
 	
@@ -58,13 +58,13 @@ public class GenEntityTable {
 		    
 		    while (resultSet.next()) {
 		    	String tableName=resultSet.getString("TABLE_NAME");
-		    	//ResultSet rs =getConnection.getMetaData().getColumns(null, getXMLConfig.getSchema(),tableName.toUpperCase(), "%");//ÆäËûÊý¾Ý¿â²»ÐèÒªÕâ¸ö·½·¨µÄ£¬Ö±½Ó´«null£¬Õâ¸öÊÇoracleºÍdb2ÕâÃ´ÓÃ
+		    	//ResultSet rs =getConnection.getMetaData().getColumns(null, getXMLConfig.getSchema(),tableName.toUpperCase(), "%");//å…¶ä»–æ•°æ®åº“ä¸éœ€è¦è¿™ä¸ªæ–¹æ³•çš„ï¼Œç›´æŽ¥ä¼ nullï¼Œè¿™ä¸ªæ˜¯oracleå’Œdb2è¿™ä¹ˆç”¨
 	    		ResultSet rs1 = dbmd.getColumns(null, "%", tableName, "%");
 	    		//ResultSet rs2 = dbmd.getColumns(null, "%", tableName, "%");
 		    	//System.out.println(tableName);
-		    	if(tablename == null) {//Éú³ÉËùÓÐ
+		    	if(tablename == null) {//ç”Ÿæˆæ‰€æœ‰
 		    		createFile(path,tableName,rs1);
-			    }else if(Arrays.asList(tablename).contains(tableName)){//ÕâÀï¸ÉµôIF¿É¶Ô¿âÀïÃæËùÓÐ±íÖ±½ÓÉú³ÉtableName
+			    }else if(Arrays.asList(tablename).contains(tableName)){//è¿™é‡Œå¹²æŽ‰IFå¯å¯¹åº“é‡Œé¢æ‰€æœ‰è¡¨ç›´æŽ¥ç”ŸæˆtableName
 			    	createFile(path,tableName,rs1);
 			    }
 		    }
@@ -87,21 +87,21 @@ public class GenEntityTable {
 		
 		pw.write("import lombok.Data;\r\n");
 		pw.write("/**\r\n");
-		pw.write("* " + tableName + " ÊµÌåÀà\r\n");
+		pw.write("* " + tableName + " å®žä½“ç±»\r\n");
 		pw.write("* " + getDate()+ " wcc\r\n");
 		pw.write("*/ \r\n");
 		pw.write("@Entity\r\n");
 		pw.write("@Table(name=\""+tableName+"\")\r\n");
 		pw.write("@Data\r\n");
 		pw.write("public class " + initcap(tableName) + "{\r\n");
-		System.out.println(tableName+"±íÉú³É");
+		System.out.println(tableName+"è¡¨ç”Ÿæˆ");
 		while(rs1.next()){
 			String type = sqlType2JavaType(rs1.getString("TYPE_NAME"));
 			String name = rs1.getString("COLUMN_NAME");
 			String remark = rs1.getString("REMARKS");
 			createPrtype(pw,type,name,remark);
 		}
-		//Ìá¹©GetºÍSet·½·¨
+		//æä¾›Getå’ŒSetæ–¹æ³•
 //		pw.write("\r\n");
 //		while(rs2.next()){
 //			String name = rs2.getString("COLUMN_NAME");
@@ -114,7 +114,7 @@ public class GenEntityTable {
 		pw.close();
 	}
 	
-	/**Éú³ÉÊôÐÔ*/
+	/**ç”Ÿæˆå±žæ€§*/
 	public static void createPrtype(PrintWriter pw,String type,String name,String remark){
 		if(remark!=null && !"".equals(remark)){
 			pw.write("\t/**\r\n");
@@ -126,7 +126,7 @@ public class GenEntityTable {
 		pw.write("\tprivate " +type+" "+name+";\r\n");
 	}
 	
-	/**Éú³É·½·¨*/
+	/**ç”Ÿæˆæ–¹æ³•*/
 	public static void createMethod(PrintWriter pw,String type,String name){
 		pw.write("\tpublic void set " + initcap(name) + "("+ sqlType2JavaType(type) + " " + name+ "){\r\n");
 		pw.write("\t\tthis." + name + "=" + name + ";\r\n");
@@ -138,7 +138,7 @@ public class GenEntityTable {
 	}
 	
 	
-	// ´´½¨Êý¾Ý¿âÁ¬½Ó
+	// åˆ›å»ºæ•°æ®åº“è¿žæŽ¥
 	public static Connection getConnections() {
 		try {
 			Class.forName(driver);
@@ -149,7 +149,7 @@ public class GenEntityTable {
 		return getConnection;
 	}
  
-	// ½«µ¥´Ê×ÖÄ¸Ê××ÖÄ¸¸ÄÎª´óÐ´
+	// å°†å•è¯å­—æ¯é¦–å­—æ¯æ”¹ä¸ºå¤§å†™
 	private static String initcap(String str) {
 		char[] ch = str.toCharArray();
 		if (ch[0] >= 'a' && ch[0] <= 'z') {
@@ -158,7 +158,7 @@ public class GenEntityTable {
 		return new String(ch);
 	}
  
-	// ÅÐ¶ÏÊôÐÔÀàÐÍ
+	// åˆ¤æ–­å±žæ€§ç±»åž‹
 	public static String sqlType2JavaType(String sqlType) {
 		String str = null;
 		if (sqlType.equalsIgnoreCase("bit")) {
@@ -189,7 +189,7 @@ public class GenEntityTable {
 		return str;
 	}
  
-	// »ñÈ¡¸ñÊ½»¯ºóµÄÊ±¼ä
+	// èŽ·å–æ ¼å¼åŒ–åŽçš„æ—¶é—´
 	private static String getDate() {
 		String time = null;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
