@@ -11,7 +11,7 @@
 
 	<properties>
 		<!-- <java.version>1.8</java.version> -->
-		<spring.boot>2.1.7.RELEASE</spring.boot>
+		<spring.boot>2.5.12</spring.boot>
 		<tomcat.version>8.5.43</tomcat.version>
 	</properties>
 
